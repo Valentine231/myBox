@@ -1,53 +1,88 @@
 import { useState } from 'react'
 import useAuth from '../Store/Authstore'
 import Spinner from '../Components/Authloader'
-
+import Login from './Login'
 
 const Signin = () => {
-  const {signup,loading,notification}=useAuth()
-  const [email,setEmail] = useState("")
-  const [password, setpassword] = useState("")
+  const { signup, loading, notification } = useAuth()
+  const [email, setEmail] = useState("")
+  const [password, setPassword] = useState("")
+  const [isLogin, setIsLogin] = useState(false)
 
-  const handleSignup =(e)=>{
+  const handleSignup = (e) => {
     e.preventDefault()
-    signup(email,password)
+    signup(email, password)
   }
 
-
   return (
-    <div className='min-h-screen flex items-center justify-center bg-black'>
-      
-          <div className='bg-white items-center rounded-lg w-full p-8 max-w-md'>
-            <h2 className='text-gray-600 font-bold text-center justify-center text-3xl '>Welcome</h2>
-            <form onSubmit={handleSignup} className=' space-y-5'>
-                <input type="Email" 
-                placeholder='Email'
-                className='py-3 px-5 w-full border border-gray-400 rounded-lg focus:ring-2 focus:ring-indigo-400 focus:outline-none'
-                value={email}
-                onChange={(e)=>setEmail(e.target.value)}
-                />
+    <div className=" ">
+      <div className=" rounded-lg w-full p-8 max-w-md shadow-lg">
 
-               <input type="password" 
-                placeholder='password'
-                className='py-3 px-5 w-full border border-gray-400 rounded-lg focus:ring-2 focus:ring-indigo-400 focus:outline-none'
-                value={password}
-                onChange={(e)=>setpassword(e.target.value)}
-                />
-
-
-          <button type='submit' 
-          className='py-2 w-full bg-indigo-600 rounded-lg text-white font-semibold transition duration-300'
-          disabled={loading}
+        {/* Toggle Buttons */}
+        <div className="flex justify-center mb-6 gap-4">
+          {/* <button
+            onClick={() => setIsLogin(false)}
+            className={`py-2 px-6 rounded-lg font-semibold ${
+              !isLogin ? 'bg-indigo-600 text-white' : 'bg-gray-200 text-gray-700'
+            }`}
           >
-            {loading ? <Spinner size='small' color='green' /> : "Signup"}
-          
-          </button>
+            Sign Up
+          </button> */}
+
+          {/* <button
+            onClick={() => setIsLogin(true)}
+            className={`py-2 px-6 rounded-lg font-semibold ${
+              isLogin ? 'bg-indigo-600 text-white' : 'bg-gray-200 text-gray-700'
+            }`}
+          >
+            Login
+          </button> */}
+        </div>
+
+        {/* Render Form Based on State */}
+        {!isLogin ? (
+          <>
+            <h2 className="text-gray-600 font-bold text-center text-3xl mb-4">
+              Create Account
+            </h2>
+            <form onSubmit={handleSignup} className="space-y-5">
+              <input
+                type="email"
+                placeholder="Email"
+                className="py-3 px-5 w-full border border-gray-400 rounded-lg focus:ring-2 focus:ring-indigo-400 focus:outline-none"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
+              />
+
+              <input
+                type="password"
+                placeholder="Password"
+                className="py-3 px-5 w-full border border-gray-400 rounded-lg focus:ring-2 focus:ring-indigo-400 focus:outline-none"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                required
+              />
+
+              <button
+                type="submit"
+                className="py-3 w-full bg-indigo-600 rounded-lg text-white font-semibold transition duration-300 hover:bg-indigo-700 disabled:opacity-50"
+                disabled={loading}
+              >
+                {loading ? <Spinner size="medium" color="green" /> : 'Sign Up'}
+              </button>
             </form>
 
             {notification && (
-              <p className='mt-4 text-sm text-indigo-800 '>{notification}</p>
+              <p className="mt-4 text-sm text-indigo-800 text-center">
+                {notification}
+              </p>
             )}
-          </div>
+          </>
+        ) : (
+          <Login nested />
+        )}
+      </div>
     </div>
   )
 }

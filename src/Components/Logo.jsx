@@ -6,7 +6,7 @@ const Logo = () => {
       <img
         src="/images/1.jpg"  
         alt="MyBox Logo"
-        className="h-10 w-auto object-contain"  
+        className="h-12 w-auto object-contain"  
       />
     </div>
   );

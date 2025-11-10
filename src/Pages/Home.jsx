@@ -1,5 +1,6 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
+import Logo from '../Components/Logo'
 
 const Home = () => {
   const navigate = useNavigate()
@@ -10,6 +11,11 @@ const Home = () => {
   return (
     <div className="min-h-screen bg-[url('/images/movieimages.jpeg')] bg-cover bg-center bg-fixed bg-no-repeat">
       {/* Overlay with content */}
+      <div className='flex items-center '>
+      <Logo /> 
+      <span className='text-blue-700 font-bold text-2xl'>MyBox</span>
+      </div>
+     
       <div className="min-h-screen bg-black/60 flex items-center justify-center">
         <div className="text-center text-white p-8">
           <h1 className="text-5xl font-bold mb-6">Welcome to Cineverse</h1>
