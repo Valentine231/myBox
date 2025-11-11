@@ -18,7 +18,7 @@ const Home = () => {
      
       <div className="min-h-screen bg-black/60 flex items-center justify-center">
         <div className="text-center text-white p-8">
-          <h1 className="text-5xl font-bold mb-6">Welcome to Cineverse</h1>
+          <h1 className="text-5xl font-bold mb-6">Welcome to myBoxoffice</h1>
           <p className="text-xl mb-8 max-w-2xl mx-auto">
             Discover, explore, and save your favorite movies in one place. 
             Your personal cinema experience starts here.
