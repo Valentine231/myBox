@@ -1,6 +1,7 @@
 import React from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate,Link } from 'react-router-dom'
 import Logo from '../Components/Logo'
+import { User } from 'lucide-react'
 
 const Home = () => {
   const navigate = useNavigate()
@@ -11,9 +12,19 @@ const Home = () => {
   return (
     <div className="min-h-screen bg-[url('/images/movieimages.jpeg')] bg-cover bg-center bg-fixed bg-no-repeat">
       {/* Overlay with content */}
-      <div className='flex items-center '>
-      <Logo /> 
-      <span className='text-blue-700 font-bold text-2xl'>MyBox</span>
+      <div className='flex  items-center justify-between gap-2  '>
+        <div>
+        <Logo /> 
+        <span className='text-blue-700 font-bold text-2xl'>MyBox</span>
+        </div>
+            
+        <div className='flex '>
+        <Link className="text-blue-700 font-bold text-2xl" to='/auth'>signin/login </Link>
+        <span>
+          <User className='w-5 h-7 text-blue-950'/>
+        </span>
+        </div>
+     
       </div>
      
       <div className="min-h-screen bg-black/60 flex items-center justify-center">
