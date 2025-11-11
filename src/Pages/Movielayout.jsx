@@ -4,6 +4,7 @@ import SearchBar from "../Components/Search";
 import Card from "../Components/Card";
 import Loader from "../Components/Loader";
 import Navbar from "../Components/Nav";
+import Footer from "../Components/Footer";
 
 const Movielayout = () => {
   const { 
@@ -53,6 +54,7 @@ const Movielayout = () => {
           )}
         </div>
       )}
+      <Footer />
     </div>
   );
 };
