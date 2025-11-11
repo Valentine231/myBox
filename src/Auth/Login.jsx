@@ -71,7 +71,7 @@ const Login = () => {
         className="py-3 w-full bg-indigo-600 rounded-lg text-white font-semibold transition hover:bg-indigo-700 disabled:opacity-50"
         disabled={loading}
       >
-        {loading ? <Spinner size="medium" color="green" /> : "Login"}
+        {loading ? <Spinner  /> : "Login"}
       </button>
 
       {notification && (

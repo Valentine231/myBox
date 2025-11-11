@@ -1,22 +1,9 @@
-import React from 'react';
-import { ReactSpinner } from 'react-spinner';
+import { ClipLoader } from "react-spinners";
 
-const Spinner = ({ size = 'medium', color = '#4f46e5' }) => {
-  const sizeValues = {
-    small: 24,
-    medium: 32,
-    large: 48
-  };
-
-  return (
-    <div className="flex justify-center items-center">
-      <ReactSpinner 
-        width={sizeValues[size]} 
-        height={sizeValues[size]} 
-        color={color} 
-      />
-    </div>
-  );
-};
+const Spinner = ({ size = 35, color = "#4f46e5" }) => (
+  <div className="flex justify-center items-center">
+    <ClipLoader size={size} color={color} />
+  </div>
+);
 
 export default Spinner;

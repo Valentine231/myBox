@@ -88,7 +88,7 @@ const Signin = () => {
                 className="py-3 w-full bg-indigo-600 rounded-lg text-white font-semibold transition duration-300 hover:bg-indigo-700 disabled:opacity-50"
                 disabled={loading}
               >
-                {loading ? <Spinner size="medium" color="green" /> : 'Sign Up'}
+                {loading ? <Spinner  /> : 'Sign Up'}
               </button>
             </form>
 
