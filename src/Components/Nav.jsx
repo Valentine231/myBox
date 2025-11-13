@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { FaBars, FaTimes } from 'react-icons/fa'; // Better mobile icons
-import useMovies from '../Hooks/Movies';
+import useMovieStore from '../Store/Apistore'
 import SearchBar from './Search';
 import Logo from './Logo'; 
 
@@ -9,7 +9,7 @@ import Logo from './Logo';
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();
-  const { query, setQuery } = useMovies();
+  const { query, setQuery } = useMovieStore();
 
   const navItems = [
     { path: '/', label: 'Home' },
