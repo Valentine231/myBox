@@ -29,12 +29,12 @@ const MovieDetails = () => {
   const [savedMovieId, setSavedMovieId] = useState(null);
   const [saving, setSaving] = useState(false);
 
-  // ✅ Fetch movie details using Zustand store
+  // Fetch movie details using Zustand store
   useEffect(() => {
     if (id) fetchMovieDetails(id);
   }, [id, fetchMovieDetails]);
 
-  // ✅ Check if movie is already saved in Supabase
+  // Check if movie is already saved in Supabase
   useEffect(() => {
     if (user && selectedMovie) {
       checkIfSaved(selectedMovie);
@@ -62,7 +62,7 @@ const MovieDetails = () => {
     }
   };
 
-  // ✅ Save movie
+  // Save movie
   const handleSaveMovie = async () => {
     if (!user) {
       alert("Please sign in to save movies");
@@ -108,7 +108,7 @@ const MovieDetails = () => {
     }
   };
 
-  // ✅ Delete movie
+  // Delete movie
   const handleDeleteMovie = async () => {
     if (!savedMovieId) return;
 
