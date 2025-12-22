@@ -1,24 +1,25 @@
 import React, { useEffect } from "react";
-import useMovies from "../Store/Apistore";
+// import useMovies from "../Store/Apistore";
 import Card from "../Components/Card";
 import Loader from "../Components/Loader";
 import Navbar from "../Components/Nav";
 import Footer from "../Components/Footer";
+import useMovies11 from "../Store/fetch";
 
 const Movielayout = () => {
   const {
-    movieList,
     loading,
     error,
     query,
     searchPerformed,
     getDisplayMovies,
     fetchDefaultMovies,
-  } = useMovies();
+  } = useMovies11();
 
   useEffect(() => {
-    fetchDefaultMovies(); // load default list on mount
-  }, []);
+  fetchDefaultMovies();
+}, [fetchDefaultMovies]); // only run on mount
+
 
   const displayMovies = getDisplayMovies();
 
@@ -37,8 +38,8 @@ const Movielayout = () => {
           )}
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            {displayMovies.map((movie) => (
-              <Card key={movie.imdbID} movie={movie} />
+            {displayMovies.map((movie,index) => (
+              <Card  key={`${movie.imdbID}-${index}`}movie={movie} />
             ))}
           </div>
         </div>

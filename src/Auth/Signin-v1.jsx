@@ -1,12 +1,11 @@
 import { useState } from 'react'
-import useBackendAuthStore from '../Store/BackendAuthstore';
+import useAuth from '../Store/Authstore'
 import Spinner from '../Components/Authloader'
 import Login from './Login'
 import { Eye, EyeOff } from 'lucide-react';
 
 const Signin = () => {
-  const { signup, loading, notification } = useBackendAuthStore()
-  const [username, setUsername] = useState("")
+  const { signup, loading, notification } = useAuth()
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
   const [isLogin, setIsLogin] = useState(false)
@@ -17,7 +16,7 @@ const Signin = () => {
 
   const handleSignup = (e) => {
     e.preventDefault()
-    signup(username, email, password)
+    signup(email, password)
   }
 
   return (
@@ -54,17 +53,6 @@ const Signin = () => {
             <form onSubmit={handleSignup} className="space-y-5"> 
               <div>
               <input
-                type="text"
-                placeholder="username"
-                className="py-3 px-5 w-full border border-gray-400 rounded-lg focus:ring-2 focus:ring-indigo-400 focus:outline-none"
-                value={username}
-                onChange={(e) => setUsername(e.target.value)}
-                required
-              />
-              </div>
-             
-              <div>
-              <input
                 type="email"
                 placeholder="Email"
                 className="py-3 px-5 w-full border border-gray-400 rounded-lg focus:ring-2 focus:ring-indigo-400 focus:outline-none"
@@ -76,7 +64,7 @@ const Signin = () => {
              
              <div className='relative'>
              <input
-                type={showPassword ? "text" : "password"}
+                type={showPassword ? "text" : password}
                 placeholder="Password"
                 className="py-3 px-5 w-full border border-gray-400 rounded-lg focus:ring-2 focus:ring-indigo-400 focus:outline-none"
                 value={password}

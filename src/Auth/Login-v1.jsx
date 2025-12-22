@@ -1,32 +1,23 @@
 import React, { useState } from 'react';
-import useBackendAuthStore from '../Store/BackendAuthstore';
+import useAuth from '../Store/Authstore';
 import Spinner from '../Components/Authloader';
-// import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { Eye, EyeOff } from 'lucide-react';
 
 const Login = () => {
-  const{loading,login,notification,error,user}=useBackendAuthStore()
+  const { login, loading, notification } = useAuth();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [remember, setRemember] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
 
   const togglePasswordVisibility = () => setShowPassword(!showPassword);
 
-  const handleLogin =async (e) => {
+  const handleLogin = (e) => {
     e.preventDefault();
-    try{
-       await login(email, password,);
-      if(!error ){
-        window.location.href='/movieslayout'
-        // navigate('/movieslayout')
-      }
-    }catch(error){
-      console.log(error)
-    }
-    
-    
+    login(email, password, remember);
+    navigate('/movieslayout');
   };
 
   return (
