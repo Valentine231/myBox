@@ -10,7 +10,13 @@ import Authrouter from "./routes/Authroutes.js"
 const app = express()
 
 // Middleware
-app.use(cors())
+app.use(cors({
+  origin:[
+    "http://localhost:5173",
+    "https://my-box-three.vercel.app/"
+  ],
+  credentials:true,
+}))
 app.use(express.json())
 
 // Connect Database
