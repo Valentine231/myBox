@@ -39,7 +39,8 @@ const Movielayout = () => {
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {displayMovies.map((movie,index) => (
-              <Card  key={`${movie.imdbID}-${index}`}movie={movie} />
+              <Card  key={`${movie.imdbID}-${index}`}
+              movie={movie} />
             ))}
           </div>
         </div>
