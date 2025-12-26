@@ -3,7 +3,7 @@ import axios from "axios";
 import useBackendAuthStore from "./BackendAuthstore";   // ✅ ADDED (to access userId)
 
 // const BACKEND_URL = "http://localhost:5000/api/movies";
-const API_URL = import.meta.env.VITE_API_URL + "/api/movies";  // ✅ ADDED (from .env)
+const API_URL = `${import.meta.env.VITE_API_URL}/api/movies`;  // ✅ ADDED (from .env)
 
 const useMovies11 = create((set, get) => ({
   movieList: [],
